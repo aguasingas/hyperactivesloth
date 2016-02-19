@@ -5,12 +5,20 @@
         .module('mealApp')
         .controller('homeController', ['dataService', homeController]);
 
-    function homeController(dataService){
-        var vm = this;
+        function homeController(dataService){
+            var vm = this;
 
-        dataService.getData().then(function(data){
-            vm.data = data.data;
-        })
-    }
+            vm.newUser = {};
+            vm.addUser = addUser;
+
+            function addUser(){
+                console.log(vm.newUser);
+                vm.newUser = {};
+            }
+
+            dataService.getData().then(function(data){
+                vm.data = data.data;
+            })
+        }
 
 })();
