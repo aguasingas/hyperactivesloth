@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var recipes = require('./routes/recipes');
 var ping = require('./routes/ping');
 
 var cors = require('cors');
@@ -31,6 +32,7 @@ app.use(cors());
 
 app.use('/', routes);
 app.use('/user', users);
+app.use('/recipe', recipes);
 app.use('/ping', ping);
 
 // catch 404 and forward to error handler
