@@ -6,27 +6,32 @@
         .factory('dataService', ['$http', dataService]);
 
     function dataService($http){
+        var baseUrl = 'http://localhost:3000';
+
         var service = {
-            getData : getData
+            addUser : addUser
         };
 
         return service;
 
-        function getData(){
+        function addUser(user){
+            $http.post( baseUrl + '/user', user).then(success, error);
 
-            return $http({
-                method: 'GET',
-                url: 'http://localhost:3000/ping',
-                })
-                .then(getDataComplete)
-                .catch(function(message) {
-                   console.log(message);
-                });
+            function success(res){
+                var error = res.data.error;
 
-            function getDataComplete(data) {
-                return data;
+                if(error.code === 11000){
+                    console.log(error.errmsg);
+                } else {
+                    console.log('User Added');
+                }
+
             }
 
+            function error(res){
+                console.log('Error adding new user');
+                console.log(res);
+            }
         }
     }
 

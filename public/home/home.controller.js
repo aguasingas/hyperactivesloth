@@ -12,7 +12,7 @@
             vm.addUser = addUser;
 
             function addUser(){
-                console.log(vm.newUser);
+                dataService.addUser(vm.newUser);
                 vm.newUser = {};
             }
 
