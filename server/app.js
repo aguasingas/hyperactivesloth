@@ -11,8 +11,10 @@ var ping = require('./routes/ping');
 
 var cors = require('cors');
 
-
 var app = express();
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/hyperactivesloth');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,7 +28,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
-
 
 app.use('/', routes);
 app.use('/user', users);
