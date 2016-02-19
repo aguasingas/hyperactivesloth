@@ -8,7 +8,9 @@
     function homeController(dataService){
         var vm = this;
 
-        vm.data = dataService.getData();
+        dataService.getData().then(function(data){
+            vm.data = data.data;
+        })
     }
 
 })();
