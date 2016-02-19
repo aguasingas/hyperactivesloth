@@ -9,6 +9,18 @@
                 templateUrl  : 'home/home.html',
                 controller   : 'homeController',
                 controllerAs : 'home'
+            })
+
+            .when('/users',{
+                templateUrl  : 'users/users.html',
+                controller   : 'usersController',
+                controllerAs : 'users'
+            })
+
+            .when('/users/:id',{
+                templateUrl  : 'users/userDetail.html',
+                controller   : 'userDetailController',
+                controllerAs : 'user'
             });
 
     });
