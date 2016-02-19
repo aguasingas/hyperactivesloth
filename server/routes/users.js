@@ -3,6 +3,7 @@ var router = express.Router();
 var _ = require('lodash');
 
 var userModel = require('../models/users.js');
+var mealModel = require('../models/meals.js');
 
 /* POST a new user. */
 router.post('/', function(req, res, next) {
@@ -36,6 +37,25 @@ router.get('/', function(req, res, next) {
     };
     res.json({info: 'users found successfully', data: users});
   });
+});
+
+/* GET a user . */
+router.get('/:uid', function(req, res, next) {
+  if (_.isString(req.params.uid)) {
+    var uid = req.params.uid;
+    userModel.findById(uid,'-password',function(err, user) {
+      if (err) {
+        res.json({info: 'error during find users', error: err});
+      };
+      mealModel.find({'user': uid}, '-user' ,function(err, meals) {
+        res.json({
+            'info': 'Meals for used retrieved successfully',
+            'user': user,
+            'meals': meals
+        });
+      }).populate('recipe');
+    });
+  }
 });
 
 module.exports = router;
