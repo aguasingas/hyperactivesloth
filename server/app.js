@@ -32,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', routes);
-app.use('/user', users);
-app.use('/recipe', recipes);
-app.use('/meal', meals);
+app.use('/users', users);
+app.use('/recipes', recipes);
+app.use('/meals', meals);
 app.use('/ping', ping);
 
 // catch 404 and forward to error handler
