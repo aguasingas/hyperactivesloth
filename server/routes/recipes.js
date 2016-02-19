@@ -28,6 +28,16 @@ router.post('/', function(req, res, next) {
   }
 });
 
+/* GET all recipes. */
+router.get('/', function(req, res, next) {
+  recipeModel.find(function(err, recipes) {
+    if (err) {
+      res.json({info: 'error during find recipes', error: err});
+    };
+    res.json({info: 'recipes found successfully', data: recipes});
+  });
+});
+
 module.exports = router;
 
 function validateRecipeCreation(user) {

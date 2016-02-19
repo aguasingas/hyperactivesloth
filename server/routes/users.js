@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
 });
 
 
-/* GET a new user. */
+/* GET all users. */
 router.get('/', function(req, res, next) {
   userModel.find(function(err, users) {
     if (err) {
