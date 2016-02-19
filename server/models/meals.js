@@ -1,11 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mealSchema = mongoose.Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
     date: {
         type: Date,
         required: true
@@ -17,6 +12,11 @@ var mealSchema = mongoose.Schema({
     recipe: {
         type: Schema.Types.ObjectId,
         ref: 'Recipe',
+        required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     }
 });

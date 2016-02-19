@@ -31,6 +31,18 @@ router.post('/', function(req, res, next) {
   }
 });
 
+/* GET all meals. */
+router.get('/', function(req, res, next) {
+  mealModel.find(function(err, meals) {
+    if (err) {
+      res.json({info: 'error during find meals', error: err});
+    }
+    res.json({info: 'meals found successfully', data: meals});
+  })
+      .populate('user')
+      .populate('recipe');
+});
+
 module.exports = router;
 
 function validateMealCreation(meal) {
