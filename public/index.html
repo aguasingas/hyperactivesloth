@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
         <link rel="stylesheet" href="assets/css/main.css">
     </head>
     <body ng-app="mealApp">
@@ -17,6 +18,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#/">Home</a></li>
                     <li><a href="#/users">Users</a></li>
+                    <li><a href="#/meals">Meals</a></li>
+                    <li><a href="#/recipes">Recipes</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,6 +34,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 
     <!-- App -->
     <script src="app.js"></script>
@@ -39,6 +44,10 @@
     <script src="home/home.controller.js"></script>
     <script src="users/users.controller.js"></script>
     <script src="users/userDetail.controller.js"></script>
+    <script src="meals/meals.controller.js"></script>
+    <script src="meals/mealDetail.controller.js"></script>
+    <script src="recipes/recipes.controller.js"></script>
+    <script src="recipes/recipeDetail.controller.js"></script>
 
     <!-- Factories -->
     <script src="core/dataservice.factory.js"></script>

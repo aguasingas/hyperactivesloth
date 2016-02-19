@@ -1,5 +1,7 @@
 <div class="home">
-    <h1>Home</h1>
+
+    <h1>Create New User</h1>
+
     <form class="form" ng-submit="home.addUser()">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="First Name" ng-model="home.newUser.name">
@@ -17,4 +19,54 @@
             <button type="submit" class="btn btn-success">Add</button>
         </div>
     </form>
+
+    <h1>Create New Meal</h1>
+
+    <form class="form" ng-submit="home.addMeal()">
+        <div class="input-group">
+            <select ng-model="home.newMeal.user" ng-options="user._id as user.name for user in home.Users" select>
+                <option value="" disabled selected>User</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group">
+            <select ng-model="home.newMeal.time">
+                <option value="" disabled selected>Type</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="home.newMeal.date" is-open="home.datePicker.popup"/>
+            {{home.newMeal.date}}
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="home.datePicker.toggle()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <br>
+        <div class="input-group">
+            <select ng-model="home.newMeal.recipe" ng-options="recipe._id as recipe.title for recipe in home.Recipes" select>
+                <option value="" disabled selected>Recipe</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+
+    <h1>Create New Recipe</h1>
+
+    <form class="form" ng-submit="home.addRecipe()">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Burrito" ng-model="home.newRecipe.title">
+        </div>
+        <br>
+        <div class="input-group">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+
 </div>

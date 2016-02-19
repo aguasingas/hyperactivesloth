@@ -3,9 +3,10 @@
 
     angular
         .module('mealApp')
-        .controller('usersController', usersController);
+        .controller('usersController', ['dataService', 'users', usersController]);
 
-        function usersController(){
+        function usersController(dataService, users){
             var vm = this;
+            vm.Users = users;
         }
 })();
