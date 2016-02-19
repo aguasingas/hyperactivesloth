@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
     }
     res.json({info: 'meals found successfully', data: meals});
   })
-      .populate('user')
+      .populate('user', '-password')
       .populate('recipe');
 });
 
