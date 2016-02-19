@@ -30,22 +30,15 @@ router.post('/', function(req, res, next) {
 
 /* GET all users. */
 router.get('/', function(req, res, next) {
-  userModel.find(function(err, users) {
+  userModel.find({},'-password',function(err, users) {
     if (err) {
       res.json({info: 'error during find users', error: err});
     };
-    users = users.map(removePassword);
-    //console.log(users);
     res.json({info: 'users found successfully', data: users});
   });
 });
 
 module.exports = router;
-
-function removePassword(user) {
-  user.password = undefined;
-  return user;
-}
 
 function validateUserCreation(user) {
   var errors = [];
