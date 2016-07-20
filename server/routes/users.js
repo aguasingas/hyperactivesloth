@@ -58,6 +58,24 @@ router.get('/:uid', function(req, res, next) {
   }
 });
 
+/* Update a user. */
+router.put('/:uid', function(req, res, next) {
+  var uid = req.params.uid;
+  if (req.body !== undefined) {
+    var body = req.body;
+  }
+  userModel.update({_id: uid},
+    body,
+    function (err, numberAffected, response) {
+    if (err) {
+      return next(err);
+    }
+    res.send(200);
+  });
+});
+
+
+
 module.exports = router;
 
 function validateUserCreation(user) {
