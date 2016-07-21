@@ -33,7 +33,14 @@
             .when('/users/:id',{
                 templateUrl  : 'users/userDetail.html',
                 controller   : 'userDetailController',
-                controllerAs : 'user'
+                controllerAs : 'user',
+                resolve: {
+                    details: function($route, dataService){
+                        var id = $route.current.params.id;
+                        return dataService.getUser(id);
+                    }
+                }
+
             })
 
             .when('/meals',{

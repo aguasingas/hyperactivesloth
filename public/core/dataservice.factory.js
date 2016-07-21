@@ -16,6 +16,7 @@
             getUsers  : getUsers,
             getMeals  : getMeals,
             getRecipes: getRecipes,
+            getUser: getUser,
         };
 
         return service;
@@ -135,6 +136,19 @@
 
             function success(res){
                 return res.data.data;
+            }
+
+            function error(res){
+                console.log('Error adding new recipe');
+                console.log(res);
+            }
+        }
+
+        function getUser(id){
+            return $http.get( baseUrl + '/users/' + id).then(success, error);
+
+            function success(res){
+                return res.data.user;
             }
 
             function error(res){

@@ -3,9 +3,9 @@
 
     angular
         .module('mealApp')
-        .controller('userDetailController', userDetailController);
-
-        function userDetailController(){
+        .controller('userDetailController',  ['details', userDetailController]);
+        function userDetailController(details){
             var vm = this;
+            vm.details = details;
         }
 })();
