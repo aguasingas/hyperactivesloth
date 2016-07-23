@@ -40,7 +40,8 @@ router.get('/', function(req, res, next) {
     res.json({info: 'meals found successfully', data: meals});
   })
       .populate('user', '-password')
-      .populate('recipe');
+      .populate('recipe')
+    .sort({'date': 1});
 });
 
 module.exports = router;
