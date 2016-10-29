@@ -7,16 +7,16 @@
 
     function dataService($http){
 
-        var baseUrl = 'http://localhost:3000';
+        var baseUrl = '';
 
         var service = {
-            addUser   : addUser,
-            addRecipe : addRecipe,
-            addMeal : addMeal,
-            getUsers  : getUsers,
-            getMeals  : getMeals,
-            getRecipes: getRecipes,
-            getUser: getUser,
+            addUser     : addUser,
+            addRecipe   : addRecipe,
+            addMeal     : addMeal,
+            getUsers    : getUsers,
+            getMeals    : getMeals,
+            getRecipes  : getRecipes,
+            getUser     : getUser,
         };
 
         return service;
