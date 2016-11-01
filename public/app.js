@@ -77,7 +77,19 @@
                 controllerAs : 'recipe'
             })
 
-            .otherwise({
+          .when('/ingredients',{
+              templateUrl  : 'ingredients/ingredients.html',
+              controller   : 'ingredientsController',
+              controllerAs : 'ingredients',
+              resolve: {
+                  ingredients: function(dataService){
+                      return dataService.getIngredients();
+                  }
+              }
+          })
+
+
+          .otherwise({
                 redirectTo: '/'
             });
 

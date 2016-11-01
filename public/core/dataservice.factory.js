@@ -10,14 +10,15 @@
         var baseUrl = '';
 
         var service = {
-            addUser         : addUser,
-            addRecipe       : addRecipe,
-            addIngredient   : addIngredient,
-            addMeal         : addMeal,
-            getUsers        : getUsers,
-            getMeals        : getMeals,
-            getRecipes      : getRecipes,
-            getUser         : getUser,
+            addUser             : addUser,
+            addRecipe           : addRecipe,
+            addIngredient       : addIngredient,
+            addMeal             : addMeal,
+            getUsers            : getUsers,
+            getMeals            : getMeals,
+            getRecipes          : getRecipes,
+            getIngredients      : getIngredients,
+            getUser             : getUser,
         };
 
         return service;
@@ -166,6 +167,24 @@
 
             function error(res){
                 console.log('Error adding new recipe');
+                console.log(res);
+            }
+        }
+
+        /**
+         * Retrieves Recipes/Recipe from Recipes Collection
+         * @param  {integer} recipeId Recipe.Id property for retrieving single Recipe
+         * @return {array} Array of Recipe Objects
+         */
+        function getIngredients(){
+            return $http.get( baseUrl + '/ingredients').then(success, error);
+
+            function success(res){
+                return res.data.data;
+            }
+
+            function error(res){
+                console.log('Error getting ingredients');
                 console.log(res);
             }
         }
