@@ -6,9 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var recipes = require('./routes/recipes');
+var ingredients = require('./routes/ingredients');
 var meals = require('./routes/meals');
+var recipes = require('./routes/recipes');
+var users = require('./routes/users');
 var ping = require('./routes/ping');
 
 var cors = require('cors');
@@ -32,9 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/recipes', recipes);
+app.use('/ingredients', ingredients);
 app.use('/meals', meals);
+app.use('/recipes', recipes);
+app.use('/users', users);
 app.use('/ping', ping);
 
 // catch 404 and forward to error handler
