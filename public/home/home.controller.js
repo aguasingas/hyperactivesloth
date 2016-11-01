@@ -16,6 +16,8 @@
             vm.addMeal = addMeal;
             vm.newRecipe = {};
             vm.addRecipe = addRecipe;
+            vm.newIngredient = {};
+            vm.addIngredient = addIngredient;
             vm.datePicker = {
                 popup : false,
                 toggle : function(){
@@ -45,6 +47,14 @@
             function addRecipe(){
                 dataService.addRecipe(vm.newRecipe);
                 vm.newRecipe = {};
+            }
+
+            /**
+             * Calls dataService.addRecipe and clears form.
+             */
+            function addIngredient(){
+                dataService.addIngredient(vm.newIngredient);
+                vm.newIngredient = {};
             }
 
 

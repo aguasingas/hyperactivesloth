@@ -10,13 +10,14 @@
         var baseUrl = '';
 
         var service = {
-            addUser     : addUser,
-            addRecipe   : addRecipe,
-            addMeal     : addMeal,
-            getUsers    : getUsers,
-            getMeals    : getMeals,
-            getRecipes  : getRecipes,
-            getUser     : getUser,
+            addUser         : addUser,
+            addRecipe       : addRecipe,
+            addIngredient   : addIngredient,
+            addMeal         : addMeal,
+            getUsers        : getUsers,
+            getMeals        : getMeals,
+            getRecipes      : getRecipes,
+            getUser         : getUser,
         };
 
         return service;
@@ -60,6 +61,31 @@
                     console.log(error.errmsg);
                 } else {
                     console.log('Recipe Added');
+                }
+
+            }
+
+            function error(res){
+                console.log('Error adding new recipe');
+                console.log(res);
+            }
+        }
+
+        /**
+         * Stores new recipe in Recipes Collection
+         * @param {object} ingredient Recipe Object
+         */
+        function addIngredient(ingredient){
+            $http.post( baseUrl + '/ingredients', ingredient).then(success, error);
+
+            function success(res){
+
+                var error = res.data.error;
+
+                if(error && error.code === 11000){
+                    console.log(error.errmsg);
+                } else {
+                    console.log('Ingredient Added');
                 }
 
             }

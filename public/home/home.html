@@ -69,4 +69,16 @@
         </div>
     </form>
 
+    <h1>Create New Ingredient</h1>
+
+    <form class="form" ng-submit="home.addIngredient()">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Potato" ng-model="home.newIngredient.title">
+        </div>
+        <br>
+        <div class="input-group">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+
 </div>
