@@ -7,7 +7,7 @@
 
     function dataService($http){
 
-        var baseUrl = '';
+        var baseUrl = 'http://localhost:3000';
 
         var service = {
             addUser             : addUser,
@@ -190,6 +190,7 @@
         }
 
         function getUser(id){
+            console.log('getUser');
             return $http.get( baseUrl + '/users/' + id).then(success, error);
 
             function success(res){

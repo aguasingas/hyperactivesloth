@@ -3,6 +3,6 @@
     {{users.Users.length}} users:
 
     <ul>
-        <li ng-repeat="user in users.Users"><a href="#/users/{{user._id}}">{{user.name}}</a></li>
+        <li ng-repeat="user in users.Users"><a ui-sref="users_detail({id: user._id})">{{user.name}}</a></li>
     </ul>
 </div>
