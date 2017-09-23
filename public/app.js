@@ -8,7 +8,7 @@
     $stateProvider
       .state('home', {
         url  : '/',
-        templateUrl  : 'home/home.html',
+        templateUrl  : 'modules/home/home.html',
         controller   : 'homeController',
         controllerAs : 'home',
         resolve: {
@@ -46,7 +46,7 @@
       })
       .state('meals',{
         url          : '/meals',
-        templateUrl  : 'meals/meals.html',
+        templateUrl  : 'modules/meals/meals.html',
         controller   : 'mealsController',
         controllerAs : 'meals',
         resolve: {
@@ -57,7 +57,7 @@
       })
       .state('recipes',{
         url          : '/recipes',
-        templateUrl  : 'recipes/recipes.html',
+        templateUrl  : 'modules/recipes/recipes.html',
         controller   : 'recipesController',
         controllerAs : 'recipes',
         resolve: {
@@ -69,7 +69,7 @@
 
       .state('ingredients',{
         url          : '/ingredients',
-        templateUrl  : 'ingredients/ingredients.html',
+        templateUrl  : 'modules/ingredients/ingredients.html',
         controller   : 'ingredientsController',
         controllerAs : 'ingredients',
         resolve: {
