@@ -1,11 +1,9 @@
 (function(){
   'use strict';
 
-  var app = angular.module('mealApp',['ui.router','ui.bootstrap']);
-
-  app.config(['$stateProvider', function ($stateProvider) {
-    console.log('config');
-    $stateProvider
+  angular.module('mealApp',['ui.router','ui.bootstrap', 'md_users'])
+    .config(['$stateProvider', function ($stateProvider) {
+      $stateProvider
       .state('home', {
         url  : '/',
         templateUrl  : 'modules/home/home.html',
@@ -17,30 +15,6 @@
           },
           recipes: function(dataService){
             return dataService.getRecipes();
-          }
-        }
-      })
-      .state('users', {
-        url  : '/users',
-        templateUrl  : 'modules/users/users.html',
-        controller   : 'usersController',
-        controllerAs : 'users',
-        resolve: {
-          users: function(dataService){
-            return dataService.getUsers();
-          }
-        }
-      })
-      .state('users_detail',{
-        url: '/users/:id',
-        templateUrl  : 'modules/users/userDetail.html',
-        controller   : 'userDetailController',
-        controllerAs : 'user',
-        resolve: {
-          details: function($stateParams, dataService){
-            console.log($stateParams);
-            var id = $stateParams.id;
-            return dataService.getUser(id);
           }
         }
       })
@@ -80,6 +54,34 @@
       });
   }]);
 
+  angular.module('md_users', ['ui.router'])
+    .config(['$stateProvider', function ($stateProvider) {
+      $stateProvider
+      .state('users', {
+        url: '/users',
+        templateUrl: 'modules/users/users.html',
+        controller: 'usersController',
+        controllerAs: 'users',
+        resolve: {
+          users: function (dataService) {
+            return dataService.getUsers();
+          }
+        }
+      })
+        .state('users_detail', {
+          url: '/users/:id',
+          templateUrl: 'modules/users/userDetail.html',
+          controller: 'userDetailController',
+          controllerAs: 'user',
+          resolve: {
+            details: function ($stateParams, dataService) {
+              console.log($stateParams);
+              var id = $stateParams.id;
+              return dataService.getUser(id);
+            }
+          }
+        });
+    }]);
   //         .when('/meals/:id',{
   //             templateUrl  : 'meals/mealDetail.html',
   //             controller   : 'mealDetailController',
