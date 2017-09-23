@@ -22,7 +22,7 @@
       })
       .state('users', {
         url  : '/users',
-        templateUrl  : 'users/users.html',
+        templateUrl  : 'modules/users/users.html',
         controller   : 'usersController',
         controllerAs : 'users',
         resolve: {
@@ -33,7 +33,7 @@
       })
       .state('users_detail',{
         url: '/users/:id',
-        templateUrl  : 'users/userDetail.html',
+        templateUrl  : 'modules/users/userDetail.html',
         controller   : 'userDetailController',
         controllerAs : 'user',
         resolve: {
