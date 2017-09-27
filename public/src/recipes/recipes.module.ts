@@ -6,7 +6,7 @@
       $stateProvider
         .state('recipes',{
           url          : '/recipes',
-          templateUrl  : 'modules/recipes/recipes.html',
+          templateUrl  : 'src/recipes/recipes.html',
           controller   : 'recipesController',
           controllerAs : 'recipes',
           resolve: {

@@ -1,5 +1,10 @@
+
+
 (function(){
   'use strict';
+
+    import "//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js";
+    import "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js";
 
   angular.module('mealApp',['ui.router','ui.bootstrap', 'md_users', 'md_meals',
     'md_ingredients', 'md_recipes'])
@@ -7,7 +12,7 @@
       $stateProvider
       .state('home', {
         url  : '/',
-        templateUrl  : 'modules/home/home.html',
+        templateUrl  : 'src/home/home.html',
         controller   : 'homeController',
         controllerAs : 'home',
         resolve: {
@@ -26,7 +31,7 @@
       $stateProvider
         .state('ingredients',{
           url          : '/ingredients',
-          templateUrl  : 'modules/ingredients/ingredients.html',
+          templateUrl  : 'src/ingredients/ingredients.html',
           controller   : 'ingredientsController',
           controllerAs : 'ingredients',
           resolve: {
@@ -42,7 +47,7 @@
       $stateProvider
         .state('meals', {
           url: '/meals',
-          templateUrl: 'modules/meals/meals.html',
+          templateUrl: 'src/meals/meals.html',
           controller: 'mealsController',
           controllerAs: 'meals',
           resolve: {
@@ -58,7 +63,7 @@
       $stateProvider
       .state('users', {
         url: '/users',
-        templateUrl: 'modules/users/users.html',
+        templateUrl: 'src/users/users.html',
         controller: 'usersController',
         controllerAs: 'users',
         resolve: {
@@ -69,7 +74,7 @@
       })
         .state('users_detail', {
           url: '/users/:id',
-          templateUrl: 'modules/users/userDetail.html',
+          templateUrl: 'src/users/userDetail.html',
           controller: 'userDetailController',
           controllerAs: 'user',
           resolve: {
