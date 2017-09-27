@@ -1,7 +1,8 @@
 (function(){
   'use strict';
 
-  angular.module('mealApp',['ui.router','ui.bootstrap', 'md_users'])
+  angular.module('mealApp',['ui.router','ui.bootstrap', 'md_users', 'md_meals',
+    'md_ingredients', 'md_recipes'])
     .config(['$stateProvider', function ($stateProvider) {
       $stateProvider
       .state('home', {
@@ -17,42 +18,40 @@
             return dataService.getRecipes();
           }
         }
-      })
-      .state('meals',{
-        url          : '/meals',
-        templateUrl  : 'modules/meals/meals.html',
-        controller   : 'mealsController',
-        controllerAs : 'meals',
-        resolve: {
-          meals: function(dataService){
-            return dataService.getMeals();
-          }
-        }
-      })
-      .state('recipes',{
-        url          : '/recipes',
-        templateUrl  : 'modules/recipes/recipes.html',
-        controller   : 'recipesController',
-        controllerAs : 'recipes',
-        resolve: {
-          recipes: function(dataService){
-            return dataService.getRecipes();
-          }
-        }
-      })
-
-      .state('ingredients',{
-        url          : '/ingredients',
-        templateUrl  : 'modules/ingredients/ingredients.html',
-        controller   : 'ingredientsController',
-        controllerAs : 'ingredients',
-        resolve: {
-          ingredients: function(dataService){
-            return dataService.getIngredients();
-          }
-        }
       });
   }]);
+
+  angular.module('md_ingredients', ['ui.router'])
+    .config(['$stateProvider', function ($stateProvider) {
+      $stateProvider
+        .state('ingredients',{
+          url          : '/ingredients',
+          templateUrl  : 'modules/ingredients/ingredients.html',
+          controller   : 'ingredientsController',
+          controllerAs : 'ingredients',
+          resolve: {
+            ingredients: function(dataService){
+              return dataService.getIngredients();
+            }
+          }
+        });
+    }]);
+
+  angular.module('md_meals', ['ui.router'])
+    .config(['$stateProvider', function ($stateProvider) {
+      $stateProvider
+        .state('meals', {
+          url: '/meals',
+          templateUrl: 'modules/meals/meals.html',
+          controller: 'mealsController',
+          controllerAs: 'meals',
+          resolve: {
+            meals: function (dataService) {
+              return dataService.getMeals();
+            }
+          }
+        });
+    }]);
 
   angular.module('md_users', ['ui.router'])
     .config(['$stateProvider', function ($stateProvider) {
